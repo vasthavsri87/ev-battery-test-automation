@@ -39,3 +39,8 @@ def test_valid_battery_values(battery_level):
     battery = BatteryController(battery_level)
 
     assert 0 <= battery.get_battery_level() <= 100
+def test_overheating_detection():
+
+    battery = BatteryController(50, temperature=70)
+
+    assert battery.is_overheated() is True

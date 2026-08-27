@@ -4,14 +4,18 @@ A lightweight Python/Pytest framework for automated testing of EV battery contro
 
 ## Overview
 
-This project simulates an EV battery controller and uses automated tests to validate expected system behavior.
+This project simulates an EV battery controller and uses a Python/Pytest
+automation framework to validate expected system behavior.
 
-The framework currently focuses on:
+The framework currently supports:
 
 - Battery level validation
-- Charging behavior
+- Charging behavior testing
 - Boundary-condition testing
+- Temperature safety testing
 - Parametrized test execution
+- Structured logging
+- HTML test reporting
 - Automated PASS/FAIL validation
 
 ## Project Structure
@@ -38,7 +42,9 @@ ev-battery-test-automation/
 
 - Python
 - Pytest
+- pytest-html
 - Object-Oriented Programming (OOP)
+- Python Logging
 - Git/GitHub
 - Linux-compatible test execution
 
@@ -76,11 +82,19 @@ The current test suite validates:
 
 ## Test Results
 
-The current test suite contains **11 automated tests**, all passing successfully.
+The current test suite contains **12 automated tests**, all passing successfully.
 
 ```text
-11 passed
+12 passed
 ```
+
+HTML reports can be generated using:
+
+```bash
+python -m pytest --html=report.html
+```
+
+The generated report and its supporting assets are excluded from Git tracking.
 
 ## Future Improvements
 

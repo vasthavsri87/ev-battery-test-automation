@@ -1,3 +1,5 @@
+from utils.logger import logger
+
 class BatteryController:
 
     def __init__(self, battery_level=50, temperature=25):
@@ -12,18 +14,29 @@ class BatteryController:
         return self.temperature
 
     def start_charging(self):
-        if self.battery_level >= 100:
-            return False
 
-        self.charging = True
-        return True
+       if self.battery_level >= 100:
+        logger.warning("Charging requested when battery is full")
+        return False
+
+       self.charging = True
+       logger.info("Charging started")
+
+       return True
 
     def charge(self):
-        if self.charging and self.battery_level < 100:
-            self.battery_level += 10
+
+     if self.charging and self.battery_level < 100:
+
+        self.battery_level += 10
 
         if self.battery_level > 100:
             self.battery_level = 100
+
+        logger.info(
+            "Battery charged to %s%%",
+            self.battery_level
+        )
 
     def stop_charging(self):
         self.charging = False
